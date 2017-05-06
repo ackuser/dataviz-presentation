@@ -13,19 +13,12 @@ name: inverse
 layout: true
 class: center, middle, inverse
 ---
-#dc.js
-Framework for Data Viz Web Applications
-.footnote[[dc-js.github.io](https://dc-js.github.io/dc.js/)]
+#Data Visualization
+Small Data 2 Big Data
+
+.footnote[[Karim Abdeselam Canales, ackuser](https://github.com/ackuser)]
 ---
-## What is Data Visualization?
-
-## Coordinated Visualizations
-
-## crossfilter.js
-
-## dc.js
-
-## Resources
+# Visualization?
 ---
 layout: false
 
@@ -33,383 +26,161 @@ layout: false
   ## Data Viz?
 ]
 .right-column[
-# Data Visualization
+# Data Scientist
 
-- Data visualization is the study of the visual representation of data,
-meaning "information that has been abstracted in some schematic form,
-including attributes or variables for the units of information
+## Es una herramienta .small-image[![tool](images/tool.png)]
 
-- Data Visualizations (in the context of application design) are interfaces
+    Verificación y contraste de hipótesis
+    Análisis visual y conclusiones
+    Resumen
 
-- Visual Interfaces: collections of visual representations of an applications data model
+.right-column[
+.small-image[
+![ds](images/ds.png)
+]
+]
 
-- Are Not Just Charts
+]
 
-- Views of data mapped to some visual space
 
-- Allow people to process information leveraging the way the individual can see]
 ---
 layout: false
 
 .left-column[
   ### Data Viz?
-  ## Coordinated Viz
+  ## Data Scientist
 ]
 .right-column[
-# Coordinated Views
+# Herramientas
 
-- Are Coordinated Views (UX)
+## Solutions / Comerciales
 
-- Link components, or individual visualizations, together via some interaction
+##### Tableau &nbsp;&nbsp;&nbsp; .small-image[![tableau](images/tableau.png)]
 
-- How do you create Coordinated Visualizations?
+##### Qlik &nbsp;&nbsp;&nbsp; .small-image[![qlik](images/qlik.png)]
 
-        crossfilter.js
+##### ...
+
+## Customs
+
+##### python &nbsp;&nbsp;&nbsp; .small-image[![python](images/python.png)] &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; r &nbsp;&nbsp;&nbsp; .small-image[![rstudio](images/rstudio.png)]
+
+##### shiny, ggplot2
+
+#####...
 
 ]
 ---
+
 .left-column[
-  ### Data Viz?
-  ### Coordinated Views
-  ## crossfilter.js
+### Data Viz?
+## Data Scientist
 ]
 .right-column[
- [crossfilter.js](http://square.github.io/crossfilter/)
+
+# Prototypes
 
 .large-image[
-  ![crossfilterjs](images/crossfilteringjs.png)
+![prototypes](images/prototypes.png)
 ]
 
 ]
 ---
 .left-column[
 ### Data Viz?
-### Coordinated Views
-## crossfilter.js
+## Data Scientist
 ]
 .right-column[
 
-- Our Dataset
+# Limitaciones
 
-```javascript
-var data = [
-  { name: "Rusty",  type: "human", legs: 2 },
-  { name: "Alex",   type: "human", legs: 2 },
-  { name: "Lassie", type: "dog",   legs: 4 },
-  { name: "Spot",   type: "dog",   legs: 4 },
-  { name: "Polly",  type: "bird",  legs: 2 },
-  { name: "Fiona",  type: "plant", legs: 0 }
-]
-```
-]
----
-.left-column[
-### Data Viz?
-### Coordinated Views
-## crossfilter.js
-]
-.right-column[
+#### Requisitos
 
-- Dimensions
+.small-image[![requirements](images/requirements.png)]
 
+#### Accesibilidad
 
-<!-- - [Dimensions and group](http://jsbin.com/gunemom/1/edit?html,css,js,output) -->
+.small-image[![web](images/web.png)]
 
-- The easiest example of a dimension is just a column within a tabular dataset
+#### Recursos y entorno
 
-- Since crossfilter is a data manipulation library it supports leveraging dimensions that are combinations of columns (date + key) or sub-values of the column (date.getYear())
+.small-image[![resources](images/resources.png)]
 
-- I.E: crossfilter supports creation of helper columns.
+#### Ingeniería del Software
 
-```javascript
- var livingThings = crossfilter(data),
- typeDimension = livingThings
- .dimension(function(d) {return d.type})
-```
-
-- Filters
-
-```javascript
-// Filter for dogs.
- typeDimension.filter("dog")
-```
-
-- Top, Bottom
-
-```javascript
- typeDimension.top(2)
- typeDimension.bottom(1)
-```
-
-- All together
-
-```javascript
- typeDimension.filter("dog")
-              .top(Infinity)
-              .top(2)
-              .top(1)
-              .bottom(1)
-              .filterAll()
-              .top(Infinity)
-              .filter("plant")
-              .top(1)
-              .bottom(1)
-```
-
-- Dimensions are bound to the crossfilter once created.
-
-- >8, 16 dimensions, introduces additional overhead.
-
-- >32 dimensions at once is not currently supported
-]
----
-.left-column[
-### Data Viz?
-### Coordinated Views
-## crossfilter.js
-]
-
-.right-column[
-
-- Groups
-
-```javascript
-var typeGroup = typeDimension.group()//.reduceCount()
-var a = typeGroup.top(4)
-console.log(
-"Are " + a[0].value + " " + a[0].key + "(s) in house." +
-"Are " + a[1].value + " " + a[1].key + "(s) in house." +
-"Are " + a[2].value + " " + a[2].key + "(s) in house." +
-"Are " + a[3].value + " " + a[3].key + "(s) in house."
-           )
-```
-
-- Groups count the values by default; but can be extended to do more
-
-- Grouping is like Map Reduce
+.small-image[![softeng](images/softeng.png)]
 
 ]
 ---
 .left-column[
 ### Data Viz?
-### Coordinated Views
-## crossfilter.js
+### Data Scientist
+## Data Viz
+]
+
+.right-column[
+
+- Casos de Uso, apuesta, contexto y limitaciones
+
+    - Metodología
+
+    - Arquitectura
+
+        - Ventajas
+
+    - Exploración
+]
+---
+.left-column[
+### Data Viz?
+### Data Scientist
+## Data Viz
 ]
 .right-column[
-- Map Reduce is a programming model for processing large data sets
-with a parallel, distributed algorithm on a cluster.
-
-```javascript
- function reduceInitial() {
-  return {count: 0, total: 0, avg: 0,}
-}
-
-function reduceAdd(p, v) {
-  p.count++
-  p.total += +v.legs
-  p.avg = p.total / p.count
-  return p
-}
-
-function reduceRemove(p, v) {
-  p.count--
-  p.total -= +v.legs
-  p.avg = p.total / p.count
-  return p
-}
-
-avgGroup = typeDimension
-            .group()
-            .reduce(reduceAdd, reduceRemove, reduceInitial)
-```
-
-[crossfiltering example](https://embed.plnkr.co/CSmhcEGSMeJaSFo2KdEI/)
+- Metodologías
 
 ]
 ---
 .left-column[
 ### Data Viz?
-### Coordinated Views
-## crossfilter.js
+### Data Scientist
+## Data Viz
 ]
 .right-column[
-
-- So now that we know how to manipulate the data, how can we get users to manipulate the data via interactions?
-        dc.js
-<!-- - [Custom reduce function](http://jsbin.com/pubaz/2/edit?html,css,js,output) -->
+- Arquitectura
 
 ]
 ---
 .left-column[
 ### Data Viz?
-### Coordinated Views
-### crossfilter.js
-## dc.js
+### Data Scientist
+## Data Viz
 ]
 .right-column[
-
-<!-- https://becomingadatascientist.wordpress.com/tag/crossfilter-js/ -->
-
-[dc.js](http://dc-js.github.io/dc.js/vc/)
-
-.large-image[
-  ![dcjs](images/dcjs_2.png)
-]
-
-- dc.js is a charting library that wires up it's visualizations with filtering interactions on the corresponding dimension
-
-- A dimensional charting library.
-
-- Give it a dimension and a group and it will visualize the data and link the components together
-]
----
-.left-column[
-### Data Viz?
-### Coordinated Views
-### crossfilter.js
-## dc.js
-]
-.right-column[
-[Methodology](https://becomingadatascientist.wordpress.com/tag/dc-js/)
-
-- Explore Data & Data Features
-
-    - [Dataset](https://es.wikipedia.org/wiki/Anexo:Provincias_y_ciudades_aut%C3%B3nomas_de_Espa%C3%B1a)
-
-.small-image[
-  ![dcjs](images/dcjs_data.png)
-]
-
-- Brainstorm Features / Hypothesis about patterns
-
-    - Which cities have a high number of feature X than others?
-    - Do specific cities have higher rated feature X than others?
-    - Do certain cities have a higher average number of feature Y per feature X?
-    - What proportion of feature Z in a city are A compared to B?
-    - List the highest / lowest rated feature Z for a specific city
+- Ventajas
 
 ]
 ---
 .left-column[
 ### Data Viz?
-### Coordinated Views
-### crossfilter.js
-## dc.js
+### Data Scientist
+## Data Viz
 ]
-
 .right-column[
+- Exploración
 
-- Roughly Sketch Visual
-.small-image[
-![dcjs](images/dcjs_components.png)
-]
-
-- Iteratively Implement Visualisation
-.small-image[
-  ![dcjs](images/implement.png)
-]
-
-- Observe Users interacting
-
-- Refine, Test, Release
-]
-
----
-.left-column[
-### Data Viz?
-### Coordinated Views
-### crossfilter.js
-## dc.js
-]
-
-.right-column[
-
-- Roughly Sketch Visual
-.small-image[
-![dcjs](images/dcjs_components.png)
-]
-
-- Iteratively Implement Visualisation
-.small-image[
-  ![dcjs](images/implement.png)
-]
 ]
 ---
 .left-column[
 ### Data Viz?
-### Coordinated Views
-### crossfilter.js
-## dc.js
+### Data Scientist
+### Data Viz
+## Conclusión
 ]
-
 .right-column[
-
--   - Development Environment Setup
-
-    - Implementing our visualisation – HTML Coding
-
-    - Implementing our visualisation (Step 3) – Javascript Coding
-
-        - Load Data
-
-        - Create Chart Object(s)
-
-        - Run Data Through Crossfilter
-
-        - Create Data Dimensions & Groups
-
-        - Implement Charts
-
-        - Render Charts
+- Conclusión
 
 ]
-
----
-.left-column[
-### Data Viz?
-### Coordinated Views
-### crossfilter.js
-## dc.js
-]
-
-.right-column[
-
-- Observe Users interacting
-
-    - Useful viz ==> understood by the user (interactive) & encouraging the user to explore the data?
-
-- Refine, Test, Release
-
-    - Improvements on the visualisation?
-
-    - Changes might be cosmetic or transformational
-
-    - Returning to step 2 or step 4?
-
-]
-
----
-
-.left-column[
-### Data Viz?
-### Coordinated Views
-### crossfilter.js
-## dc.js
-]
-
-.right-column[
-
-- Then...
-
-.small-image[
-  ![dcjs](images/choro_dcjs.png)
-]
-
-- Let's see inside the code
-
-    [dcjs example](http://bl.ocks.org/ackuser/raw/53e66ddba701e7bc99c396f0640639d5/)
-]
-
 ---
 
 # Code size

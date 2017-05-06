@@ -1,6 +1,6 @@
-dcjs-presentation
+dataviz-presentation
 ====================
 
-Presentation dc.js. View it on
+Presentation dataviz. View it on
 
-http://ackuser.github.io/dcjs-presentation
+http://ackuser.github.io/dataviz-presentation
